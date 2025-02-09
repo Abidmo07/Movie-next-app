@@ -6,6 +6,7 @@ import Link from 'next/link';
 import SwitchMode from './SwitchMode';
 
 export default function Header() {
+  
   return (
    <div className=' px-10 py-5 flex items-center justify-between shadow-md mb-5 '>
     {/* menu */}
