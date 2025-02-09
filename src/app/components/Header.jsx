@@ -4,11 +4,13 @@ import React from 'react'
 import { MdOutlineDarkMode } from "react-icons/md";
 import Link from 'next/link';
 import SwitchMode from './SwitchMode';
+import NavBar from './NavBar';
 
 export default function Header() {
   
   return (
-   <div className=' px-10 py-5 flex items-center justify-between shadow-md mb-5 '>
+    <>
+      <div className=' px-10 py-5 flex items-center justify-between shadow-md  '>
     {/* menu */}
     <div className='flex items-center gap-5 '>
       <Link href={"/"}><h2 className='cursor-pointer hover:text-orange-400' >Home</h2></Link>
@@ -30,5 +32,9 @@ export default function Header() {
     
     </div>
    </div>
+    
+   
+    </>
+ 
   )
 }
