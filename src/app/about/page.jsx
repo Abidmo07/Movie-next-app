@@ -6,8 +6,8 @@ export default function About() {
   const { theme } = useTheme();
   
   return (
-    <div className={`max-w-4xl mx-auto p-6 transition-colors duration-300 ${
-      theme === "dark" ? "text-gray-200 " : "text-gray-800 "
+    <div className={`   max-w-4xl mx-auto p-6 transition-colors duration-300 ${
+      theme === "dark" ? "text-gray-200  " : "text-gray-800 "
     }`}>
       <h1 className="text-4xl font-bold text-yellow-500 mb-4">About IMDb Clone</h1>
       <p className="text-lg mb-4">

@@ -8,7 +8,7 @@ export default function NavBar() {
     const searchParam=useSearchParams();
     const genre=searchParam.get('genre');
   return (
-    <div className='dark:bg-gray-900 bg-gray-100 flex justify-center gap-10 py-4 shadow-md'>
+    <div className='dark:bg-gray-900 bg-gray-50 flex justify-center gap-10 py-4 shadow-md'>
       <Link href={"/?genre=fetchTrending"} className={`text-gray-800 dark:text-gray-200 font-medium hover:text-blue-600 dark:hover:text-blue-400 transition duration-300 cursor-pointer  ${genre==="fetchTrending"? 'underline underline-offset-8 decoration-4 decoration-orange-400 rounded-lg':''}`}>
         Trending
       </Link>
