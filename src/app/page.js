@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import CardMovie from './components/CardMovie';
+import Link from 'next/link';
 
 const ApiKey = process.env.NEXT_PUBLIC_API_KEY;
 
@@ -39,7 +40,7 @@ const Home = () => {
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
           {movies.map((movie) => (
-            <div key={movie.id} className="rounded-lg p-4 shadow-md transition transform hover:scale-105 
+            <Link href={`movie/${movie.id}`} key={movie.id} className="rounded-lg p-4 shadow-md transition transform hover:scale-105 
                 dark:bg-gray-800 bg-gray-200">
               <CardMovie
                 image={`https://image.tmdb.org/t/p/original/${movie.backdrop_path || movie.poster_path}`}
@@ -48,7 +49,7 @@ const Home = () => {
                 likes={movie.vote_count}
                 date={movie.release_date}
               />
-            </div>
+            </Link>
           ))}
         </div>
       )}
