@@ -42,7 +42,7 @@ export default function Search() {
       </div>
 
       {/* Search Results Dropdown */}
-      {results &&  <div className="absolute top-12 left-0 w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg max-h-60 overflow-y-auto">
+      {results &&  <div className="absolute top-12 left-0 w-full bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-md shadow-lg max-h-60 overflow-y-auto z-10">
         {results.map((movie)=>{
             return(
                 <div
@@ -56,7 +56,7 @@ export default function Search() {
         })}
     </div>
 }
-      {!results &&         <p className="text-center p-3 text-gray-500">No results found</p>
+      {!results &&         <p className="text-center p-3 text-gray-500 z-10">No results found</p>
       }
     </div>
   );
