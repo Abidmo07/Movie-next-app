@@ -1,7 +1,6 @@
 "use client";
 
 import axios from 'axios';
-import { useSearchParams } from 'next/navigation';
 import React, { useEffect, useState } from 'react';
 import CardMovie from './components/CardMovie';
 import Link from 'next/link';
@@ -10,8 +9,7 @@ const ApiKey = process.env.NEXT_PUBLIC_API_KEY;
 
 const Home = () => {
   const [movies, setMovies] = useState([]);
-  const searchParam = useSearchParams();
-  const genre = searchParam.get('genre') || 'fetchTrending';
+  const [genre, setGenre] = useState('fetchTrending'); // State to manage genre selection
   const [loading, setLoading] = useState(false);
 
   const fetchMovies = () => {
@@ -29,10 +27,33 @@ const Home = () => {
     fetchMovies();
   }, [genre]);
 
+  const handleGenreChange = (selectedGenre) => {
+    setGenre(selectedGenre);
+  };
+
   return (
     <div className="min-h-screen p-6 transition-colors duration-300 dark:bg-gray-900 bg-white dark:text-white text-gray-900">
       <h1 className="text-3xl font-bold text-center mb-6">Trending & Top Rated Movies</h1>
       
+      <div className="flex justify-center space-x-4 mb-6">
+        <button
+          onClick={() => handleGenreChange('fetchTrending')}
+          className={`px-4 py-2 rounded-lg ${
+            genre === 'fetchTrending' ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-gray-700'
+          }`}
+        >
+          Trending
+        </button>
+        <button
+          onClick={() => handleGenreChange('fetchTopRated')}
+          className={`px-4 py-2 rounded-lg ${
+            genre === 'fetchTopRated' ? 'bg-blue-500 text-white' : 'bg-gray-200 dark:bg-gray-700'
+          }`}
+        >
+          Top Rated
+        </button>
+      </div>
+
       {loading ? (
         <div className="flex justify-center items-center h-40">
           <div className="w-12 h-12 border-4 border-blue-500 border-dashed rounded-full animate-spin"></div>
